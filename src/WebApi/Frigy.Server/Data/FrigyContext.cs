@@ -34,5 +34,4 @@ public class FrigyContext : DbContext
 
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<ProductToBuy> ProductToBuys { get; set; } = null!;
-    public DbSet<ProductCategory> ProductCategories { get; set; } = null!;
 }

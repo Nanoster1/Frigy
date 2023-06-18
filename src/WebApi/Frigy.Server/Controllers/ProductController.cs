@@ -37,4 +37,12 @@ public class ProductController : ApiController
         await _context.SaveChangesAsync(token);
         return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
     }
+
+    [HttpPut]
+    public async Task<ActionResult<Product>> Update([FromBody] Product product, CancellationToken token)
+    {
+        _context.Update(product);
+        await _context.SaveChangesAsync(token);
+        return Ok(product);
+    }
 }
