@@ -1,10 +1,6 @@
-using System.Text;
-
-using Frigy.Server.Controllers;
 using Frigy.Server.Data;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,21 +37,6 @@ var services = builder.Services;
             }
         });
     });
-    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options =>
-        {
-            options.RequireHttpsMetadata = false;
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                ValidateLifetime = false,
-                ValidateIssuerSigningKey = true,
-                ValidateActor = false,
-                ValidateTokenReplay = false,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthenticationController.Secret))
-            };
-        });
 }
 
 var app = builder.Build();

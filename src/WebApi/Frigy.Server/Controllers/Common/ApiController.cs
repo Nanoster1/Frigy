@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Frigy.Server.Controllers.Common;
 
-[Authorize]
 [ApiController]
 public abstract class ApiController : ControllerBase
 {

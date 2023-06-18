@@ -4,14 +4,20 @@ namespace Frigy.Server.Models;
 
 public class Product : EntityBase
 {
-    protected Product() { }
-
-    public Product(ProductType type, double quantity)
+    public Product(string title, int productCategory, bool isImportant, int count, int maxCount)
     {
-        Type = type;
-        Quantity = quantity;
+        Title = title;
+        ProductCategory = productCategory;
+        IsImportant = isImportant;
+        Count = count;
+        MaxCount = maxCount;
     }
 
-    public ProductType Type { get; set; } = null!;
-    public double Quantity { get; set; }
+    protected Product() { }
+
+    public string Title { get; set; } = null!;
+    public int ProductCategory { get; set; }
+    public bool IsImportant { get; set; }
+    public int Count { get; set; }
+    public int MaxCount { get; set; }
 }
